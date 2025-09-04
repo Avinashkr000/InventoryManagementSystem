@@ -32,6 +32,8 @@ The goal is to design a real-world style Inventory Management System with clean 
 ```bash
 git clone https://github.com/Avinashkr000/InventoryManagementSystem.git
 cd InventoryManagementSystem
+
+
 spring.datasource.url=jdbc:mysql://localhost:3306/inventory_db
 spring.datasource.username=your_username
 spring.datasource.password=your_password
