@@ -4,7 +4,6 @@ A backend project built with **Java**, **Spring Boot**, **MySQL**, and **JWT-bas
 
 ---
 
-![Architecture Diagram](https://github.com/user-attachments/assets/9c6bbe15-a853-42d1-bb36-bbae059e6a26)
 
 ---
 
