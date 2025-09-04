@@ -1,4 +1,4 @@
-package com.avinash.InventoryManagementSystem.models;
+package com.avinash.InventoryManagementSystem.dtos;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -7,17 +7,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "siuppliers")
-@Data
-@Builder
+@Table(name = "products")
 
-public class Supplier {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SupplierDTO {
+
     private Long id;
 
     @NotBlank(message = "Name is required")
