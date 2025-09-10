@@ -55,6 +55,4 @@ public class Response {
 
     private final LocalDateTime timestamp = LocalDateTime.now();
 
-
-
 }
