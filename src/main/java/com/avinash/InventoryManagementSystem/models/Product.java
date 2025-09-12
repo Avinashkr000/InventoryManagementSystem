@@ -4,10 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -18,11 +15,10 @@ import java.time.LocalDateTime;
 @Table(name = "products")
 @Data
 @Builder
-public class Product {
-
+public class Product extends Auditable {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message = "Name is required")
@@ -32,7 +28,7 @@ public class Product {
     @NotBlank(message = "SKU is required")
     private String sku;
 
-    @Positive(message = "Price must be a positive value")
+    @Positive(message = "Product price must be a positive value")
     private BigDecimal price;
 
     @Min(value = 0, message = "Stock quantity cannot be negative")
@@ -41,8 +37,6 @@ public class Product {
     private String description;
     private LocalDateTime expiryDate;
     private String imageUrl;
-
-    private final LocalDateTime createdAt = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -59,8 +53,8 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", expiryDate=" + expiryDate +
                 ", imageUrl='" + imageUrl + '\'' +
-                ", createdAt=" + createdAt +
-                ", category=" + category +
+                ", createdAt=" + getCreatedAt() +
+                ", updatedAt=" + getUpdatedAt() +
                 '}';
     }
 }
