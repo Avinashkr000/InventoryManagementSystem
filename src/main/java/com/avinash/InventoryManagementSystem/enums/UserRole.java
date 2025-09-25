@@ -1,6 +1,6 @@
 package com.avinash.InventoryManagementSystem.enums;
 
 public enum UserRole {
-    ADMIN,Manager
+    ADMIN, MANAGER
 
 }
