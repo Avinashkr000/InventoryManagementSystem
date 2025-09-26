@@ -41,7 +41,7 @@ public class UserDTO {
     private UserRole role;
 
 
-    private List<TransactionDTO> transanctions;
+    private List<TransactionDTO> transactions;
 
 
     private LocalDateTime createdAt;

@@ -19,9 +19,8 @@ import java.util.List;
 @Builder
 public class User {
 
-
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message = "Name is required")
@@ -41,26 +40,22 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-
-
     @OneToMany(mappedBy = "user")
-    private List<Transaction> transanctions;
+    private List<Transaction> transactions;
 
     @Column(name = "created_at")
     private final LocalDateTime createdAt = LocalDateTime.now();
 
-
     @Override
     public String toString() {
         return "User{" +
-                "createdAt=" + createdAt +
-                ", transanctions=" + transanctions +
-                ", role=" + role +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", password='" + password + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", id=" + id +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", role=" + role +
+                ", createdAt=" + createdAt +
                 '}';
     }
 }

@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Table(name = "products")
 @Data
 @Builder
-public class Product extends Auditable {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,19 +28,22 @@ public class Product extends Auditable {
     @NotBlank(message = "SKU is required")
     private String sku;
 
-    @Positive(message = "Product price must be a positive value")
+    @Positive(message = "product price must be a positive value")
     private BigDecimal price;
 
-    @Min(value = 0, message = "Stock quantity cannot be negative")
+    @Min(value = 0, message = "stock quantity cannot be negative")
     private Integer stockQuantity;
 
     private String description;
     private LocalDateTime expiryDate;
     private String imageUrl;
 
+    private final LocalDateTime createdAt = LocalDateTime.now();
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
 
     @Override
     public String toString() {
@@ -53,8 +56,7 @@ public class Product extends Auditable {
                 ", description='" + description + '\'' +
                 ", expiryDate=" + expiryDate +
                 ", imageUrl='" + imageUrl + '\'' +
-                ", createdAt=" + getCreatedAt() +
-                ", updatedAt=" + getUpdatedAt() +
+                ", createdAt=" + createdAt +
                 '}';
     }
 }

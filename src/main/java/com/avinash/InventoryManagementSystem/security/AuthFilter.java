@@ -35,7 +35,7 @@ public class AuthFilter extends OncePerRequestFilter {
             String email = jwtUtils.getUsernameFromToken(token);
             UserDetails userDetails = customUserDetailsService.loadUserByUsername(email);
 
-            if (StringUtils.hasText(email) && jwtUtils.isTokeValid(token, userDetails)) {
+            if (StringUtils.hasText(email) && jwtUtils.isTokenValid(token, userDetails)) {
                 log.info("Valid Token, {}", email);
 
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
