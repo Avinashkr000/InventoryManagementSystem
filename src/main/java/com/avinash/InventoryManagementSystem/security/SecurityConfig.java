@@ -1,7 +1,5 @@
 package com.avinash.InventoryManagementSystem.security;
 
-
-
 import com.avinash.InventoryManagementSystem.exceptions.CustomAccessDenialHandler;
 import com.avinash.InventoryManagementSystem.exceptions.CustomAuthenticationEntryPoint;
 
@@ -42,13 +40,26 @@ public class SecurityConfig {
                         .authenticationEntryPoint(customAuthenticationEntryPoint)
                 )
                 .authorizeHttpRequests(request -> request
+                        // ✅ Swagger + OpenAPI endpoints allow without token
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/swagger-ui/index.html",
+                                "/swagger-resources/**",
+                                "/webjars/**"
+                        ).permitAll()
+
+                        // ✅ Auth endpoints allow without token
                         .requestMatchers("/api/auth/**").permitAll()
+
+                        // 🔒 Everything else requires JWT
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
-        return httpSecurity.build();
 
+        return httpSecurity.build();
     }
 
     @Bean

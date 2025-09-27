@@ -9,13 +9,14 @@ import org.springframework.data.jpa.domain.Specification;
 import java.util.ArrayList;
 import java.util.List;
 
-//Specification is used in Filtering data in a database
+
+
 public class TransactionFilter {
 
 
     public static Specification<Transaction> byFilter(String searchValue) {
         return (root, query, criteriaBuilder) -> {
-            // If filter is null or empty, return true for all transactions
+
             if (searchValue == null || searchValue.isEmpty()) {
                 return criteriaBuilder.conjunction(); // Always true
             }
