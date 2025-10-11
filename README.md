@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # 📦 Inventory Management System
 
 A backend project built with **Java**, **Spring Boot**, **MySQL**, and **JWT-based Security**. The goal is to design a real-world Inventory Management System with clean architecture, feature-wise branching, and DevOps-ready practices.
@@ -181,4 +179,4 @@ InventoryManagementSystem/
 📩 Email: **[ak749299.ak@gmail.com](mailto:ak749299.ak@gmail.com)**
 🔗 LinkedIn: **[https://www.linkedin.com/in/avinash-java-backend/](https://www.linkedin.com/in/avinash-java-backend/)**
 🐙 GitHub: **[https://github.com/Avinashkr000](https://github.com/Avinashkr000)**
->>>>>>> 2c35873bae6279e47610ccda47f50965c92c844b
+
